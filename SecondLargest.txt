@@ -21,7 +21,7 @@ public class SecondLargest {
             if (arr[i]>max2 && arr[i]<max)
                 max2=arr[i];
         }
-        System.out.println(max);
-        System.out.println(max2);
+        System.out.println("Largest-"+max);
+        System.out.println("Second-"+max2);
     }
 }
