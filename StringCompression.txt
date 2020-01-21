@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class StringCompression {
+    public static void main(String [] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter testcases");
+        int t=sc.nextInt();
+        
+        for(int i=0;i<t;i++)
+        {
+      String str=new String();
+
+       System.out.println("Enter strings");
+        str=sc.next();
+        
+        for(int ij=1;ij<str.length();ij++)
+        {
+             int c=0;
+             while(ij<str.length()-1 && str.charAt(ij)!=str.charAt(ij+1) && str.charAt(ij)!=str.charAt(ij-1))
+             {
+                 c++;
+                  System.out.print(str.charAt(ij));
+                 ij++;
+                 
+             }
+            
+            
+        }
+        if(str.charAt((str.length()-1))!= (str.charAt(str.length()-2)))
+            System.out.print(str.charAt(str.length()-1));
+           System.out.println();
+         
+        }
+        }
+    }
+
