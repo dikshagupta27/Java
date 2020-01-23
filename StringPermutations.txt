@@ -1,0 +1,47 @@
+
+import java.util.Scanner;
+
+public class StringPermutations {
+
+    private static void println(String str) {
+        System.out.println(str);
+    }
+
+    private static void print(String str) {
+        System.out.print(str);
+         
+    }
+
+    public static String swapCharacters(String str, int i, int j) {
+        char tempCharacter;
+        char[] charArray = str.toCharArray();
+        tempCharacter = charArray[i];
+        charArray[i] = charArray[j];
+        charArray[j] = tempCharacter;
+        return String.valueOf(charArray);
+    }
+
+    private static void findPermutation(String str, int leftIndex, int sizeOfString) {
+        if (leftIndex == sizeOfString) {
+            print(str + " ");
+        } else {
+            for (int i = leftIndex; i < sizeOfString; i++) {
+                str = swapCharacters(str, leftIndex, i);
+                findPermutation(str, leftIndex + 1, sizeOfString);
+                str = swapCharacters(str, leftIndex, i);
+            }
+        }
+    }
+
+    public static void main(String[] args)  {
+        String str;
+        Scanner sc = new Scanner(System.in);
+        println("Enter number of testcases : ");
+        int t=sc.nextInt();
+        for(int i=0;i<t;i++){
+        println("Enter a string : ");
+        str = sc.next();
+        findPermutation(str, 0, str.length());
+        }
+    }
+}
