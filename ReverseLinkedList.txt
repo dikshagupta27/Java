@@ -1,4 +1,6 @@
 
+import java.util.Scanner;
+
 public class ReverseLinkedList {
     static Node head;
     static class Node{
@@ -9,6 +11,25 @@ public class ReverseLinkedList {
             next=null;
         }
     }
+    static ReverseLinkedList insert(ReverseLinkedList li,int data)
+       {
+           Node newNode=new Node(data);
+           newNode.next=null;
+           if(li.head==null)
+           {
+               li.head=newNode;
+           }
+           else
+           {
+               Node last=li.head;
+               while(last.next!=null)
+               {
+                   last=last.next;
+               }
+               last.next=newNode;
+           }
+           return li;
+       }
     Node Reverse(Node node){
         Node prev=null;
         Node current=node;
@@ -34,17 +55,20 @@ public class ReverseLinkedList {
     } 
     public static void main(String[] args) 
     { 
-        ReverseLinkedList list = new ReverseLinkedList(); 
-        list.head = new Node(1); 
-        list.head.next = new Node(12); 
-        list.head.next.next = new Node(24); 
-        list.head.next.next.next = new Node(204); 
+        
+        Scanner sc=new Scanner(System.in);
+        ReverseLinkedList li = new ReverseLinkedList(); 
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++){
+            int l=sc.nextInt();
+            insert(li,l);
+        }
         System.out.println("Given Linked list"); 
-        list.printList(head); 
-        head = list.Reverse(head); 
+        li.printList(head); 
+        head = li.Reverse(head); 
         System.out.println(""); 
         System.out.println("Reversed linked list "); 
-        list.printList(head); 
+        li.printList(head); 
     } 
 } 
 
